@@ -133,5 +133,6 @@ How to Use
 * Fully Quit (Cmd+Q) and Relaunch Claude Desktop after editing its config file.
 * Successful Connection: The plug icon (🔌) should appear near Claude's chat input. Clicking it should list "monad-multisend" under "Installed MCP servers". This confirms the server process is launched by Claude and the MCP handshake (initialize, tools/list, etc.) is successful.
 * Observed Limitation: Testing with Claude Desktop (on macOS) showed that it fails to invoke the server's tools (like monad-multisend/getBalance) via natural language prompts. Claude provides generic responses instead of sending the tools/call request, even when the server is connected and tools are listed correctly. This appears to be a client-side limitation in Claude Desktop's current ability to use custom MCP tools via natural language.
+
 Disclaimer
 This project was developed for the Monad MCP Madness event using Testnet resources. The smart contract is unaudited. Use with caution.
