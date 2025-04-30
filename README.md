@@ -9,32 +9,35 @@ Features
 * Multisend dApp (Frontend):
   * Connect to MetaMask on Monad Testnet.
   * Input multiple recipient addresses and corresponding MON amounts.
-Send MON tokens to all recipients with a single user confirmation via the deployed Multisend.sol contract.
-Display transaction status updates.
-MCP Server (Backend):
-Runs as a local stdio server (using manual JSON-RPC handling).
-Connects to Monad Testnet RPC (configurable via .env).
-Handles MCP initialize, tools/list, resources/list, and prompts/list methods successfully.
-Implements tools/call handlers for:
-monad-multisend/getBalance: Checks MON balance.
-monad-multisend/getTransactionCount: Gets transaction count.
-monad-multisend/getTransactionStatus: Checks transaction status.
-monad-multisend/getBlockNumber: Gets latest block number.
-monad-multisend/sendMultisendTransaction: Provides an informational message only.
-Uses namespaced tool names (e.g., monad-multisend/getBalance).
-Implements correct MCP error handling for tool execution failures (isError: true).
+  * Send MON tokens to all recipients with a single user confirmation via the deployed Multisend.sol contract.
+  * Display transaction status updates.
+* MCP Server (Backend):
+  * Runs as a local stdio server (using manual JSON-RPC handling).
+  * Connects to Monad Testnet RPC (configurable via .env).
+  * Handles MCP initialize, tools/list, resources/list, and prompts/list methods successfully.
+  * Implements tools/call handlers for:
+   * monad-multisend/getBalance: Checks MON balance.
+   * monad-multisend/getTransactionCount: Gets transaction count.
+   * monad-multisend/getTransactionStatus: Checks transaction status.
+   * monad-multisend/getBlockNumber: Gets latest block number.
+   * monad-multisend/sendMultisendTransaction: Provides an informational message only.
+  * Uses namespaced tool names (e.g., monad-multisend/getBalance).
+  * Implements correct MCP error handling for tool execution failures (isError: true).
+
 Project Structure
-/contract: Contains the Multisend.sol smart contract code.
-/frontend: Contains the web dApp files (index.html, app.js, style.css).
-/backend: Contains the MCP server code (mcp_server.js, package.json, .env.example).
-README.md: This file.
-.gitignore: Specifies intentionally untracked files.
+* /contract: Contains the Multisend.sol smart contract code.
+* /frontend: Contains the web dApp files (index.html, app.js, style.css).
+* /backend: Contains the MCP server code (mcp_server.js, package.json, .env.example).
+* README.md: This file.
+* .gitignore: Specifies intentionally untracked files.
+
 Prerequisites
-Node.js (v18 or v20 LTS recommended)
-npm (comes with Node.js)
-Git
-A web browser with MetaMask extension installed and configured for Monad Testnet.
-(For MCP testing) Claude Desktop application installed on your OS (tested on macOS).
+* Node.js (v18 or v20 LTS recommended)
+* npm (comes with Node.js)
+* Git
+* A web browser with MetaMask extension installed and configured for Monad Testnet.
+* (For MCP testing) Claude Desktop application installed on your OS (tested on macOS).
+
 Setup & Installation
 Follow these steps precisely to set up and run the project:
 
@@ -46,62 +49,60 @@ git clone https://github.com/Kimzimi/monad-multisend-mcp.git
 cd monad-multisend-mcp
 ```
 
-
 (Replace Kimzimi with your actual GitHub username if different)
 
 2. Deploy Smart Contract:
+* You need to deploy the contract/Multisend.sol contract to the Monad Testnet.
+* Using Remix IDE (Recommended):
+* Go to https://remix.ethereum.org/.
+* Load Multisend.sol.
+* Compile the contract.
+* Deploy using "Injected Provider - MetaMask" (ensure MetaMask is on Monad Testnet).
+* Copy the deployed Contract Address.
 
-You need to deploy the contract/Multisend.sol contract to the Monad Testnet.
-Using Remix IDE (Recommended):
-Go to https://remix.ethereum.org/.
-Load Multisend.sol.
-Compile the contract.
-Deploy using "Injected Provider - MetaMask" (ensure MetaMask is on Monad Testnet).
-Copy the deployed Contract Address.
 3. Configure & Run Frontend dApp:
+* Navigate to the frontend directory:
 
-Navigate to the frontend directory:
 ```Bash
 
 cd frontend
 ```
 
-Open app.js.
-Replace "YOUR_DEPLOYED_CONTRACT_ADDRESS" with the actual contract address you deployed in Step 2.
-Save app.js.
-Serve the frontend using a local web server. In the frontend directory, run:
-Bash
+* Open app.js.
+* Replace "YOUR_DEPLOYED_CONTRACT_ADDRESS" with the actual contract address you deployed in Step 2.
+* Save app.js.
+* Serve the frontend using a local web server. In the frontend directory, run:
+```Bash
 
 # Make sure you are in the 'frontend' directory
 npx serve .
-(Or python -m http.server)
-Open the provided URL (e.g., http://localhost:3000) in your browser.
-4. Configure & Prepare Backend MCP Server:
+```
 
-Navigate to the backend directory:
+(Or python -m http.server)
+* Open the provided URL (e.g., http://localhost:3000) in your browser.
+4. Configure & Prepare Backend MCP Server:
+* Navigate to the backend directory:
 ```Bash
 
 # From project root:
 cd backend
 ```
 
-Create .env file:
+* Create .env file:
 ```Bash
 
 cp .env.example .env
 ```
-Verify MONAD_RPC_URL in .env is correct.
-Install dependencies:
+  * Verify MONAD_RPC_URL in .env is correct.
+* Install dependencies:
 ```Bash
 
 npm install
 ```
 (Installs ethers and dotenv)
 5. Configure Claude Desktop (macOS):
-
-Find/Create Config File: ~/Library/Application Support/Claude/claude_desktop_config.json
-
-Edit the file, ensuring valid JSON. Add/Modify the entry inside mcpServers:
+* Find/Create Config File: ~/Library/Application Support/Claude/claude_desktop_config.json
+* Edit the file, ensuring valid JSON. Add/Modify the entry inside mcpServers:
 
 ```JSON
 
@@ -116,23 +117,21 @@ Edit the file, ensuring valid JSON. Add/Modify the entry inside mcpServers:
 }
 ```
 
-Replace the placeholder /ABSOLUTE/PATH/TO/... with the real absolute path to mcp_server.js on your Mac. Use pwd in the backend folder to find it.
+* Replace the placeholder /ABSOLUTE/PATH/TO/... with the real absolute path to mcp_server.js on your Mac. Use pwd in the backend folder to find it.
 
-Save the config file.
+* Save the config file.
 
 How to Use
 1. Multisend dApp (Working):
-
-Open the frontend URL (from Setup Step 3) in your browser with MetaMask connected to Monad Testnet.
-Connect Wallet.
-Enter recipient addresses and amounts.
-Click "Send to Multiple" and confirm in MetaMask.
+* Open the frontend URL (from Setup Step 3) in your browser with MetaMask connected to Monad Testnet.
+* Connect Wallet.
+* Enter recipient addresses and amounts.
+* Click "Send to Multiple" and confirm in MetaMask.
 
 2. MCP Server with Claude Desktop (Connects, but Tool Invocation Fails):
-
-Do NOT run npm start for the backend manually. Claude launches it automatically.
-Fully Quit (Cmd+Q) and Relaunch Claude Desktop after editing its config file.
-Successful Connection: The plug icon (🔌) should appear near Claude's chat input. Clicking it should list "monad-multisend" under "Installed MCP servers". This confirms the server process is launched by Claude and the MCP handshake (initialize, tools/list, etc.) is successful.
-Observed Limitation: Testing with Claude Desktop (on macOS) showed that it fails to invoke the server's tools (like monad-multisend/getBalance) via natural language prompts. Claude provides generic responses instead of sending the tools/call request, even when the server is connected and tools are listed correctly. This appears to be a client-side limitation in Claude Desktop's current ability to use custom MCP tools via natural language.
+* Do NOT run npm start for the backend manually. Claude launches it automatically.
+* Fully Quit (Cmd+Q) and Relaunch Claude Desktop after editing its config file.
+* Successful Connection: The plug icon (🔌) should appear near Claude's chat input. Clicking it should list "monad-multisend" under "Installed MCP servers". This confirms the server process is launched by Claude and the MCP handshake (initialize, tools/list, etc.) is successful.
+* Observed Limitation: Testing with Claude Desktop (on macOS) showed that it fails to invoke the server's tools (like monad-multisend/getBalance) via natural language prompts. Claude provides generic responses instead of sending the tools/call request, even when the server is connected and tools are listed correctly. This appears to be a client-side limitation in Claude Desktop's current ability to use custom MCP tools via natural language.
 Disclaimer
 This project was developed for the Monad MCP Madness event using Testnet resources. The smart contract is unaudited. Use with caution.
