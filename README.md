@@ -108,7 +108,7 @@ Edit the file, ensuring valid JSON. Add/Modify the entry inside mcpServers:
 "monad-multisend": {
   "command": "node",
   "args": [
-    "/ABSOLUTE/PATH/TO/monad-multisend-mcp/backend/mcp_server.js" // <-- IMPORTANT: REPLACE THIS PATH!
+    "/ABSOLUTE/PATH/TO/monad-multisend-mcp/backend/mcp_server.js"
   ],
   "env": {
     "MONAD_RPC_URL": "https://testnet-rpc.monad.xyz/"
@@ -127,6 +127,7 @@ Open the frontend URL (from Setup Step 3) in your browser with MetaMask connecte
 Connect Wallet.
 Enter recipient addresses and amounts.
 Click "Send to Multiple" and confirm in MetaMask.
+
 2. MCP Server with Claude Desktop (Connects, but Tool Invocation Fails):
 
 Do NOT run npm start for the backend manually. Claude launches it automatically.
