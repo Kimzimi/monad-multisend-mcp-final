@@ -1,0 +1,16 @@
+{
+  "name": "mcp-agent",
+  "version": "1.0.0",
+  "description": "Manual MCP Agent (stdio server) for Monad Multisend project",
+  "main": "mcp_server.js",
+  "scripts": {
+    "start": "node mcp_server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.1"
+  },
+  "author": "",
+  "license": "ISC"
+}
