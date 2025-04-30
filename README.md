@@ -1,11 +1,3 @@
-ได้เลยครับ เข้าใจตรงกัน ผมจะใช้เส้นคั่นที่ชัดเจนขึ้นเพื่อบอกจุดเริ่มต้นและสิ้นสุดของเนื้อหาสำหรับไฟล์ README.md ครับ
-
-ไฟล์: README.md (สร้าง/แก้ไข ที่โฟลเดอร์หลัก monad-multisend-mcp/)
-
-ตำแหน่ง: /Users/mac/Desktop/monad-multisend-mcp/README.md
-เนื้อหา: (คัดลอก เฉพาะ ส่วนที่อยู่ระหว่าง --- เริ่มต้นเนื้อหา README.md --- และ --- สิ้นสุดเนื้อหา README.md ---)
---- เริ่มต้นเนื้อหา README.md ---
-
 Monad Multisend dApp & MCP Server (MCP Madness Submission)
 This project includes two main components developed for the Monad MCP Madness event:
 
@@ -48,10 +40,13 @@ Follow these steps precisely to set up and run the project:
 
 1. Clone the Repository:
 
-Bash
+```Bash
 
 git clone https://github.com/Kimzimi/monad-multisend-mcp.git
 cd monad-multisend-mcp
+```
+
+
 (Replace Kimzimi with your actual GitHub username if different)
 
 2. Deploy Smart Contract:
@@ -66,9 +61,11 @@ Copy the deployed Contract Address.
 3. Configure & Run Frontend dApp:
 
 Navigate to the frontend directory:
-Bash
+```Bash
 
 cd frontend
+```
+
 Open app.js.
 Replace "YOUR_DEPLOYED_CONTRACT_ADDRESS" with the actual contract address you deployed in Step 2.
 Save app.js.
@@ -82,14 +79,17 @@ Open the provided URL (e.g., http://localhost:3000) in your browser.
 4. Configure & Prepare Backend MCP Server:
 
 Navigate to the backend directory:
-Bash
+```Bash
 
 # From project root:
 cd backend
+```
+
 Create .env file:
-Bash
+```Bash
 
 cp .env.example .env
+```
 Verify MONAD_RPC_URL in .env is correct.
 Install dependencies:
 Bash
