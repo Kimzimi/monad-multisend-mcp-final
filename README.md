@@ -1,8 +1,8 @@
 Monad Multisend dApp & MCP Server (MCP Madness Submission)
 This project includes two main components developed for the Monad MCP Madness event:
 
-Monad Multisend dApp: A web-based decentralized application (located in the frontend folder) that allows users to send MON tokens from their wallet (via MetaMask) to multiple recipient addresses on the Monad Testnet in a single transaction. This utilizes the Multisend.sol smart contract.
-MCP Server: A Node.js backend server (located in the backend folder) designed to act as a Model Context Protocol (MCP) server. It communicates via stdio and aims to provide information from the Monad Testnet (like balances and transaction details) to an MCP client such as Claude Desktop.
+*Monad Multisend dApp: A web-based decentralized application (located in the frontend folder) that allows users to send MON tokens from their wallet (via MetaMask) to multiple recipient addresses on the Monad Testnet in a single transaction. This utilizes the Multisend.sol smart contract.
+*MCP Server: A Node.js backend server (located in the backend folder) designed to act as a Model Context Protocol (MCP) server. It communicates via stdio and aims to provide information from the Monad Testnet (like balances and transaction details) to an MCP client such as Claude Desktop.
 The initial goal focused heavily on MCP integration, but the core sending functionality was implemented via a standard dApp pattern for better user experience and security (wallet interaction). The backend evolved into a standalone MCP server handling read-only requests based on MCP principles.
 
 Features
