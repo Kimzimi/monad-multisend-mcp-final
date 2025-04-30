@@ -92,9 +92,10 @@ cp .env.example .env
 ```
 Verify MONAD_RPC_URL in .env is correct.
 Install dependencies:
-Bash
+```Bash
 
 npm install
+```
 (Installs ethers and dotenv)
 5. Configure Claude Desktop (macOS):
 
@@ -102,7 +103,7 @@ Find/Create Config File: ~/Library/Application Support/Claude/claude_desktop_con
 
 Edit the file, ensuring valid JSON. Add/Modify the entry inside mcpServers:
 
-JSON
+```JSON
 
 "monad-multisend": {
   "command": "node",
@@ -113,6 +114,8 @@ JSON
     "MONAD_RPC_URL": "https://testnet-rpc.monad.xyz/"
   }
 }
+```
+
 Replace the placeholder /ABSOLUTE/PATH/TO/... with the real absolute path to mcp_server.js on your Mac. Use pwd in the backend folder to find it.
 
 Save the config file.
